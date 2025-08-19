@@ -14,4 +14,8 @@ function searchProducts() {
       products[i].style.display = "none";
     }
   }
-}
+document.getElementById("contactButton").addEventListener("click", function() {
+  alert("شكراً لتواصلك مع AMIRSHOP ❤️");
+});
+
+
