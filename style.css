@@ -187,19 +187,24 @@ footer {
   }
 }
 
-/* لمحاذاة القائمة في الموبايل */
+/* القاعدة الأساسية لأجهزة الكمبيوتر */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* للشاشات الصغيرة (موبايل) */
 @media (max-width: 768px) {
-  nav ul {
-    display: flex;
-    flex-direction: column; /* يخلي العناصر تحت بعض */
-    align-items: flex-start; /* يخليها تبدا من اليسار (غيرها flex-end لو تبيها يمين) */
-    padding: 0;
-    margin: 0;
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  nav ul li {
-    text-align: left; /* يخلي النصوص لليسار */
-    width: 100%;
+  img {
+    max-width: 90%;
+    height: auto;
   }
 }
+
 
