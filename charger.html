@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast Charger – AMIRSHOP</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /*--- تنسيق الصفحة الخاصة بـ Fast Charger ---*/
+    .product-page {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    }
+
+    .product-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .product-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .product-main-info {
+      margin-bottom: 20px;
+    }
+
+    .product-main-info h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .product-main-info .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e53935;
+      margin-bottom: 10px;
+    }
+
+    .product-main-info .stars {
+      color: #f5a623;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .product-description {
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .product-actions button {
+      background: #ff8c00;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .product-actions button:hover {
+      background: #e67e00;
+    }
+
+    @media (max-width: 600px) {
+      .product-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">AMIRSHOP</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="product-page">
+    <!-- معرض الصور -->
+    <div class="product-gallery">
+      <img src="https://m.media-amazon.com/images/I/61rQkLeIqwL._AC_SX679_.jpg" alt="Fast Charger front view" />
+      <img src="https://m.media-amazon.com/images/I/71pDHbCJ4YL._AC_SX679_.jpg" alt="Fast Charger side" />
+      <img src="https://m.media-amazon.com/images/I/61jPObGufxL._AC_SX679_.jpg" alt="Fast Charger displayed" />
+      <img src="https://m.media-amazon.com/images/I/51Gsy9HhlxL._AC_SX679_.jpg" alt="Fast Charger with device" />
+    </div>
+
+    <!-- معلومات المنتج -->
+    <div class="product-main-info">
+      <h1>Fast Charger 20W USB-C Quick Charge</h1>
+      <div class="price">$20</div>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div class="product-description">
+        اشحن أجهزتك بسرعة وأمان مع شاحن Fast Charger بقوة 20W و منفذ USB-C. تصميم صغير الحجم، أداء عالي الجودة، ومناسب للهواتف الذكية والأجهزة اللوحية. يدعم تقنيات شحن سريع وسعة الطاقة عالية، كل ذلك مع حماية ضد الحرارة الزائدة والتجاوز في التيار.
+      </div>
+    </div>
+
+    <!-- زر الإضافة للسلة -->
+    <div class="product-actions">
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AMIRSHOP – All Rights Reserved</p>
+  </footer>
+</body>
+</html>
