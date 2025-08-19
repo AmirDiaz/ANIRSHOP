@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMIRSHOP</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/4b6c35e4f1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo"><i class="fas fa-store"></i> 🛍️ AMIRSHOP</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="login.html">🔑 Login</a></li>
+      </ul>
+    </nav>
+    <input type="text" id="searchBox" placeholder="🔍 Search products..." onkeyup="searchProducts()">
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Welcome to AMIRSHOP</h1>
+    <p>Your trusted place for electronics & gaming</p>
+  </section>
+
+  <!-- Products -->
+  <section class="products" id="productList">
+    <!-- GameSir -->
+    <div class="product" data-name="gamesir x5 lite" onclick="viewProduct('gamesir.html')">
+      <img src="https://m.media-amazon.com/images/I/71vXGd4aMwL._AC_SX466_.jpg" alt="GameSir X5 Lite">
+      <h2>GameSir X5 Lite</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Mobile Gaming Controller for Android & iOS</p>
+      <p class="price">$80</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Headphones -->
+    <div class="product" data-name="wireless headphones" onclick="viewProduct('headphones.html')">
+      <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX466_.jpg" alt="Headphones">
+      <h2>Wireless Headphones</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Noise Cancelling, High Quality</p>
+      <p class="price">$50</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Smart Watch -->
+    <div class="product" data-name="smart watch" onclick="viewProduct('watch.html')">
+      <img src="https://m.media-amazon.com/images/I/71RXGlg08KL._AC_UY327_FMwebp_QL65_.jpg" alt="Smart Watch">
+      <h2>Smart Watch</h2>
+      <div class="stars">⭐⭐⭐⭐</div>
+      <p>Fitness Tracking, Notifications, Heart Rate</p>
+      <p class="price">$70</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Charger -->
+    <div class="product" data-name="fast charger" onclick="viewProduct('charger.html')">
+      <img src="https://m.media-amazon.com/images/I/51orj8y0qKL._AC_UY327_FMwebp_QL65_.jpg" alt="Charger">
+      <h2>Fast Charger</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>20W Quick Charge, USB-C</p>
+      <p class="price">$20</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- LED Light Wand -->
+    <div class="product" data-name="ulanzi led light" onclick="viewProduct('ledlight.html')">
+      <img src="https://m.media-amazon.com/images/I/613jie3ibDL._AC_SX466_.jpg" alt="LED Light Wand">
+      <h2>Ulanzi VL119 LED Light</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>RGB Video Wand Stick for Photography</p>
+      <p class="price">$60</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Gaming PC -->
+    <div class="product" data-name="gaming pc" onclick="viewProduct('gamingpc.html')">
+      <img src="https://m.media-amazon.com/images/I/711P2GOadBL._AC_SX466_.jpg" alt="Gaming PC">
+      <h2>CyberPowerPC Gamer Xtreme</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Intel i7, RTX 5060 Ti, 16GB DDR5, 1TB SSD</p>
+      <p class="price">$1600</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Gaming Laptop -->
+    <div class="product" data-name="asus rog laptop" onclick="viewProduct('laptop.html')">
+      <img src="https://m.media-amazon.com/images/I/71zuMSjwDfL._AC_SX466_.jpg" alt="Gaming Laptop">
+      <h2>ASUS ROG Strix G16</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>16” 165Hz, RTX 5060, i7-14650HX</p>
+      <p class="price">$1800</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- PlayStation 5 -->
+    <div class="product" data-name="playstation 5" onclick="viewProduct('ps5.html')">
+      <img src="https://m.media-amazon.com/images/I/31Rq-MKrmSL._AC_SX466_.jpg" alt="PlayStation 5">
+      <h2>PlayStation 5 Disc Version</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>4K Gaming, 825GB SSD, Extra Controller</p>
+      <p class="price">$499</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Google Play Gift Card -->
+    <div class="product" data-name="google play gift card" onclick="viewProduct('giftcard.html')">
+      <img src="https://m.media-amazon.com/images/I/51vdYL+gJtL._AC_SX466_.jpg" alt="Gift Card">
+      <h2>Google Play Gift Card</h2>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Perfect for apps, games, and more</p>
+      <p class="price">$25</p>
+      <button>Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AMIRSHOP - All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
