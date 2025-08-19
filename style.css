@@ -130,5 +130,28 @@
 </body>
 </html>
 
+.product-images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.product-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product-images img:hover {
+  transform: scale(1.1);
+  border-color: #ffcc00;
+}
+
 
 
