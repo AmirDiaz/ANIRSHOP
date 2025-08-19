@@ -158,3 +158,32 @@ footer {
   }
 }
 
+/* إصلاح العرض على الموبايل */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  header, nav, section, footer {
+    padding: 10px;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .product-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
