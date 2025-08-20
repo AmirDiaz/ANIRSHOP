@@ -1,26 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlayStation 5 - AMIRSHOP</title>
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation 5 - AMIRSHOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0072ce;
+            --secondary: #2d2d2d;
+            --accent: #ff9800;
+            --light: #f5f5f5;
+            --dark: #2d2d2d;
+            --success: #00a650;
+            --text: #333;
+            --text-light: #ddd;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--text);
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin: 20px 0;
+        }
+
+        .product-gallery {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-main-image {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .product-main-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .product-brand {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-left: 5px;
+        }
+
+        .rating-count {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .discount {
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            flex: 2;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background-color: #005ba1;
+        }
+
+        .buy-now {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            flex: 1;
+            transition: var(--transition);
+        }
+
+        .buy-now:hover {
+            background-color: #e68900;
+        }
+
+        .wishlist-btn {
+            background-color: var(--light);
+            border: none;
+            width: 50px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #ffdfdf;
+            color: #ff5a5a;
+        }
+
+        .product-description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .product-specs {
+            margin-top: 25px;
+        }
+
+        .specs-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+        }
+
+        .specs-list {
+            list-style: none;
+        }
+
+        .specs-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+        }
+
+        .spec-label {
+            font-weight: bold;
+            min-width: 120px;
+            color: #555;
+        }
+
+        .spec-value {
+            color: #333;
+        }
+
+        .delivery-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .delivery-info i {
+            color: var(--success);
+            margin-left: 5px;
+        }
+
+        /* التكيف مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+            }
+            
+            .product-main-image {
+                height: 300px;
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+            }
+            
+            .current-price {
+                font-size: 1.5rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">AMIRSHOP</div>
-    <nav><ul><li><a href="../index.html">🏠 Home</a></li></ul></nav>
-  </header>
+    <div class="container">
+        <!-- منتج PlayStation 5 -->
+        <div class="product-detail">
+            <div class="product-gallery">
+                <div class="product-main-image">
+                    <img src="https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg" alt="PlayStation 5 Console" id="mainImage-ps5">
+                </div>
+                <div class="product-thumbnails">
+                    <div class="thumbnail active" onclick="changeImage('https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg" alt="PlayStation 5 - صورة رئيسية">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/61PCNqNcocL._SL1500_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/61PCNqNcocL._SL1500_.jpg" alt="PlayStation 5 - منظر جانبي">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/21g0GG-TMuL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/21g0GG-TMuL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - وحدة التحكم">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/51UeEcmcvJL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/51UeEcmcvJL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - منظر خلفي">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/41sBj1Mt9rL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/41sBj1Mt9rL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - منظر علوي">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/314RSUgtXLL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/314RSUgtXLL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - المنفذ الأمامي">
+                    </div>
+                </div>
+            </div>
+            <div class="product-info">
+                <span class="product-brand">SONY</span>
+                <h1 class="product-title">PlayStation 5 - إصدار القرص</h1>
+                <div class="product-rating">
+                    <div class="stars">★★★★★</div>
+                    <span class="rating-count">(4,832 تقييم)</span>
+                </div>
+                <div class="product-price">
+                    <span class="original-price">2,199 ريال</span>
+                    <span class="current-price">1,999 ريال</span>
+                    <span class="discount">وفر 200 ريال (9%)</span>
+                </div>
+                
+                <div class="product-description">
+                    <p>استمتع بتجربة ألعاب الجيل القادم مع PlayStation 5. جهاز الألعاب الأقوى من Sony يأتي بتصميم مبتكر وأداء مذهل يدعم دقة 4K بتردد 120Hz وتقنية Ray Tracing.</p>
+                    <p>يشمل نظام PS5 وحدة تحكم DualSense الجديدة التي توفر تجربة لعب غامرة مع ردود فعل háptية متطورة ومشغلات adaptable محسنة.</p>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> أضف إلى السلة</button>
+                    <button class="buy-now"><i class="fas fa-bolt"></i> اشتر الآن</button>
+                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                </div>
+                
+                <div class="delivery-info">
+                    <p><i class="fas fa-truck"></i> <strong>توصيل مجاني</strong> - استلمه خلال 2-4 أيام عمل</p>
+                    <p><i class="fas fa-undo"></i> <strong>إرجاع مجاني</strong> خلال 30 يومًا</p>
+                    <p><i class="fas fa-shield-alt"></i> <strong>ضمان</strong> لمدة عامين من Sony</p>
+                </div>
+                
+                <div class="product-specs">
+                    <h3 class="specs-title">مواصفات المنتج</h3>
+                    <ul class="specs-list">
+                        <li><span class="spec-label">السعة:</span> <span class="spec-value">825GB SSD مخصص</span></li>
+                        <li><span class="spec-label">المعالج:</span> <span class="spec-value">AMD Zen 2 8-core @ 3.5GHz</span></li>
+                        <li><span class="spec-label">الجرافيكس:</span> <span class="spec-value">AMD RDNA 2 10.28 TFLOPs</span></li>
+                        <li><span class="spec-label">الذاكرة:</span> <span class="spec-value">16GB GDDR6</span></li>
+                        <li><span class="spec-label">الدقة:</span> <span class="spec-value">4K UHD @ 120Hz, 8K</span></li>
+                        <li><span class="spec-label">منفذ الأقراص:</span> <span class="spec-value">4K Ultra HD Blu-ray</span></li>
+                        <li><span class="spec-label">التواصل:</span> <span class="spec-value">Wi-Fi 6, Bluetooth 5.1, Ethernet</span></li>
+                        <li><span class="spec-label">منافذ:</span> <span class="spec-value">USB Type-C, USB Type-A, HDMI 2.1</span></li>
+                        <li><span class="spec-label">المحتوى:</span> <span class="spec-value">جهاز PS5، وحدة تحكم DualSense، كابل HDMI، كابل طاقة</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <section class="product-detail">
-    <img src="https://m.media-amazon.com/images/I/31Rq-MKrmSL._AC_SX466_.jpg" alt="PS5">
-    <h2>PlayStation 5 Disc Version</h2>
-    <div class="stars">⭐⭐⭐⭐⭐</div>
-    <p>Next-gen 4K gaming console, 825GB SSD, DualSense controller, Ultra HD Blu-ray.</p>
-    <p class="price">$499</p>
-    <button>Add to Cart</button>
-  </section>
+    <script>
+        // دالة تغيير الصورة الرئيسية عند النقر على الصور المصغرة
+        function changeImage(src, mainImageId, element) {
+            document.getElementById(mainImageId).src = src;
+            
+            // إزالة الفعال من جميع الصور المصغرة
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // إضافة الفعال للصورة المصغرة المحددة
+            element.classList.add('active');
+        }
 
-  <footer><p>&copy; 2025 AMIRSHOP</p></footer>
+        // تفعيل أزرار الإعجاب
+        document.querySelectorAll('.wishlist-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (this.classList.contains('active')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#ff5a5a';
+                    alert('تمت إضافة PlayStation 5 إلى المفضلة!');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                }
+            });
+        });
+
+        // تفعيل أزرار الإضافة إلى السلة والشراء
+        document.querySelector('.add-to-cart').addEventListener('click', function() {
+            alert('تمت إضافة PlayStation 5 إلى سلة التسوق!');
+        });
+
+        document.querySelector('.buy-now').addEventListener('click', function() {
+            alert('جاري توجيهك إلى صفحة الدفع لشراء PlayStation 5...');
+        });
+    </script>
 </body>
 </html>
+
