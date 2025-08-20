@@ -1,135 +1,1165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AMIRSHOP</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/4b6c35e4f1.js" crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMIRSHOP - متجر الإلكترونيات والألعاب</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff9900;
+      --secondary: #131a22;
+      --accent: #146eb4;
+      --light: #f0f2f5;
+      --dark: #232f3e;
+      --success: #00a650;
+      --text: #333;
+      --text-light: #ddd;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      --transition: all 0.3s ease;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: var(--text);
+      direction: rtl;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(to bottom, var(--secondary), var(--dark));
+      color: white;
+      padding: 0.5rem 1rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .logo i {
+      margin-left: 0.5rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav ul li {
+      margin: 0 0.5rem;
+    }
+
+    nav ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.8rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: block;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-cart {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container {
+      position: relative;
+      margin-left: 1rem;
+    }
+
+    #searchBox {
+      padding: 0.7rem 1rem 0.7rem 2.5rem;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 300px;
+      background-color: white;
+      color: var(--text);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #777;
+    }
+
+    .cart-icon {
+      color: white;
+      font-size: 1.3rem;
+      margin-right: 1rem;
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1670&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .cta-button:hover {
+      background-color: #e68a00;
+      transform: translateY(-2px);
+    }
+
+    /* Categories */
+    .categories {
+      padding: 1rem;
+      background-color: white;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .categories h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .categories h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translateX(50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    .category-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .category-item {
+      text-align: center;
+      width: 120px;
+      padding: 1rem 0.5rem;
+      border-radius: 8px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .category-item:hover {
+      background-color: var(--light);
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Products Section */
+    .products-container {
+      padding: 1rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    .view-all {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--success);
+      color: white;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      z-index: 10;
+    }
+
+    .product-image {
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: #f9f9f9;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .product:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      height: 50px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .stars {
+      color: #ffc107;
+      margin-left: 0.3rem;
+    }
+
+    .rating-count {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .current-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #999;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .discount {
+      color: var(--success);
+      font-weight: bold;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .add-to-cart {
+      flex-grow: 1;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .add-to-cart:hover {
+      background-color: #e68a00;
+    }
+
+    .wishlist-btn {
+      background-color: var(--light);
+      border: none;
+      width: 40px;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .wishlist-btn:hover {
+      background-color: #ffdfdf;
+      color: #ff5a5a;
+    }
+
+    /* Special Offers */
+    .offers {
+      margin: 3rem 1rem;
+    }
+
+    .offer-banner {
+      background: linear-gradient(to right, #ff9900, #ff6600);
+      border-radius: 8px;
+      padding: 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .offer-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .offer-timer {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .offer-button {
+      background-color: white;
+      color: var(--primary);
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: var(--transition);
+    }
+
+    .offer-button:hover {
+      background-color: #f5f5f5;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--text-light);
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+      padding-right: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-wrap: wrap;
+      }
+      
+      .nav-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      .search-container {
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+      
+      #searchBox {
+        max-width: none;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .offer-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .offer-content {
+        margin-bottom: 1.5rem;
+      }
+      
+      .products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .product {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Loading State for Images */
+    .product-image {
+      position: relative;
+    }
+    
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f2f5;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="logo"><i class="fas fa-store"></i> 🛍️ AMIRSHOP</div>
+    <div class="header-top">
+      <div class="logo">
+        <i class="fas fa-store"></i> AMIRSHOP
+      </div>
+      
+      <button class="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="search-cart">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchBox" placeholder="ابحث عن المنتجات...">
+        </div>
+        
+        <a href="#" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">3</span>
+        </a>
+      </div>
+    </div>
+    
     <nav>
       <ul>
-        <li><a href="index.html">🏠 Home</a></li>
-        <li><a href="login.html">🔑 Login</a></li>
+        <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+        <li><a href="#"><i class="fas fa-mobile-alt"></i> إلكترونيات</a></li>
+        <li><a href="#"><i class="fas fa-gamepad"></i> ألعاب</a></li>
+        <li><a href="#"><i class="fas fa-laptop"></i> أجهزة كمبيوتر</a></li>
+        <li><a href="#"><i class="fas fa-tshirt"></i> ملابس</a></li>
+        <li><a href="#"><i class="fas fa-tag"></i> العروض</a></li>
+        <li><a href="#"><i class="fas fa-headset"></i> المساعدة</a></li>
       </ul>
     </nav>
-    <input type="text" id="searchBox" placeholder="🔍 Search products..." onkeyup="searchProducts()">
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to AMIRSHOP</h1>
-    <p>Your trusted place for electronics & gaming</p>
+    <div class="hero-content">
+      <h1>مرحباً بك في AMIRSHOP</h1>
+      <p>وجهتك الموثوقة للإلكترونيات والألعاب بأفضل الأسعار</p>
+      <a href="#products" class="cta-button">تسوق الآن <i class="fas fa-arrow-left"></i></a>
+    </div>
   </section>
 
-  <!-- Products -->
-  <section class="products" id="productList">
-    <!-- GameSir -->
-    <div class="product" data-name="gamesir x5 lite" onclick="viewProduct('gamesir.html')">
-      <img src="https://m.media-amazon.com/images/I/71vXGd4aMwL._AC_SX466_.jpg" alt="GameSir X5 Lite">
-      <h2>GameSir X5 Lite</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>Mobile Gaming Controller for Android & iOS</p>
-      <p class="price">$80</p>
-      <button>Add to Cart</button>
+  <!-- Categories -->
+  <section class="categories">
+    <h2>الفئات</h2>
+    <div class="category-list">
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <p>هواتف</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-laptop"></i>
+        </div>
+        <p>لابتوب</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <p>ألعاب</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-headphones"></i>
+        </div>
+        <p>سماعات</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <p>كاميرات</p>
+      </div>
+      <div class="category-item">
+        <div class="category-icon">
+          <i class="fas fa-tv"></i>
+        </div>
+        <p>تلفزيونات</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Headphones -->
-    <div class="product" data-name="wireless headphones" onclick="viewProduct('headphones.html')">
-      <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX466_.jpg" alt="Headphones">
-      <h2>Wireless Headphones</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>Noise Cancelling, High Quality</p>
-      <p class="price">$50</p>
-      <button>Add to Cart</button>
+  <!-- Products Section -->
+  <section class="products-container" id="products">
+    <div class="section-header">
+      <h2 class="section-title">منتجاتنا الأكثر مبيعاً</h2>
+      <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
     </div>
+    
+    <div class="products">
+      <!-- Product 1 -->
+      <div class="product">
+        <span class="product-badge">الأكثر مبيعاً</span>
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71vXGd4aMwL._AC_SX466_.jpg" alt="GameSir X5 Lite">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">GameSir X5 Lite - وحدة تحكم للألعاب</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(127)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">80$</span>
+            <span class="original-price">100$</span>
+            <span class="discount">خصم 20%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 2 -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX466_.jpg" alt="Wireless Headphones">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">سماعات لاسلكية بإلغاء الضوضاء</h3>
+          <div class="product-rrating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(89)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">50$</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 3 -->
+      <div class="product">
+        <span class="product-badge">جديد</span>
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71RXGlg08KL._AC_UY327_FMwebp_QL65_.jpg" alt="Smart Watch">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">ساعة ذكية - تتبع اللياقة والإشعارات</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-count">(64)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">70$</span>
+            <span class="original-price">90$</span>
+            <span class="discount">خصم 22%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product 4 -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/51orj8y0qKL._AC_UY327_FMwebp_QL65_.jpg" alt="Fast Charger">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">شاحن سريع 20W USB-C</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(142)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">20$</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Smart Watch -->
-    <div class="product" data-name="smart watch" onclick="viewProduct('watch.html')">
-      <img src="https://m.media-amazon.com/images/I/71RXGlg08KL._AC_UY327_FMwebp_QL65_.jpg" alt="Smart Watch">
-      <h2>Smart Watch</h2>
-      <div class="stars">⭐⭐⭐⭐</div>
-      <p>Fitness Tracking, Notifications, Heart Rate</p>
-      <p class="price">$70</p>
-      <button>Add to Cart</button>
+      <!-- Product 5 - Fixed Image -->
+      <div class="product">
+        <span class="product-badge">عرض خاص</span>
+        <div class="product-image">
+          <img src="https://www.bing.com/th/id/OIP.SvWqMUNLJkrcGBn2LhQvkQHaGk?w=227&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="Samsung Galaxy Tab S7">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">تابع سامسونج جالاكسي S7 - 128 جيجا</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(203)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">450$</span>
+            <span class="original-price">550$</span>
+            <span class="discount">خصم 18%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 - Fixed Image -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71RS0XgGGAL._AC_UY327_FMwebp_QL65_.jpg" alt="PlayStation 5 Console">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">بلايستيشن 5 - نسخة القرص + تحكم إضافي</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(315)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">599$</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 7 - Fixed Image -->
+      <div class="product">
+        <span class="product-badge">جديد</span>
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71zny7BTRlL._AC_SX466_.jpg" alt="Wireless Earbuds">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">سماعات أذن لاسلكية - تقنية إلغاء الضوضاء</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-count">(178)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">120$</span>
+            <span class="original-price">150$</span>
+            <span class="discount">خصم 20%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 8 - Fixed Image -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/81QpkIctqPL._AC_SX466_.jpg" alt="Gaming Monitor">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">شاشة ألعاب 27 بوصة - 144 هيرتز</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(92)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">320$</span>
+            <span class="original-price">400$</span>
+            <span class="discount">خصم 20%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-<!-- Charger (Main Page) -->
-<div class="product" data-name="fast charger" onclick="window.location.href='charger.html'">
-  <img src="https://m.media-amazon.com/images/I/51orj8y0qKL._AC_UY327_FMwebp_QL65_.jpg" alt="Fast Charger">
-  <h2>Fast Charger</h2>
-  <div class="stars">⭐⭐⭐⭐⭐</div>
-  <p>20W Quick Charge, USB-C</p>
-  <p class="price">$20</p>
-  <button>Add to Cart</button>
-</div>
-
-
-
-    <!-- LED Light Wand -->
-    <div class="product" data-name="ulanzi led light" onclick="viewProduct('ledlight.html')">
-      <img src="https://m.media-amazon.com/images/I/613jie3ibDL._AC_SX466_.jpg" alt="LED Light Wand">
-      <h2>Ulanzi VL119 LED Light</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>RGB Video Wand Stick for Photography</p>
-      <p class="price">$60</p>
-      <button>Add to Cart</button>
+  <!-- Special Offers -->
+  <section class="offers">
+    <div class="offer-banner">
+      <div class="offer-content">
+        <h2>عرض خاص لمدة محدودة!</h2>
+        <div class="offer-timer">
+          <i class="fas fa-bolt"></i> ينتهي خلال: 2 يوم, 12:30:15
+        </div>
+        <p>احصل على خصم إضافي 15% على جميع المنتجات الإلكترونية</p>
+        <a href="#" class="offer-button">استخدم الكود: ELECTRO15</a>
+      </div>
+      <div class="offer-image">
+        <img src="https://i.ibb.co/6NYLg0R/special-offer.png" alt="Special Offer" width="200">
+      </div>
     </div>
+  </section>
 
-    <!-- Gaming PC -->
-    <div class="product" data-name="gaming pc" onclick="viewProduct('gamingpc.html')">
-      <img src="https://m.media-amazon.com/images/I/711P2GOadBL._AC_SX466_.jpg" alt="Gaming PC">
-      <h2>CyberPowerPC Gamer Xtreme</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>Intel i7, RTX 5060 Ti, 16GB DDR5, 1TB SSD</p>
-      <p class="price">$1600</p>
-      <button>Add to Cart</button>
+  <!-- New Products Section -->
+  <section class="products-container">
+    <div class="section-header">
+      <h2 class="section-title">منتجات جديدة</h2>
+      <a href="#" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
     </div>
+    
+    <div class="products">
+      <!-- New Product 1 - Keyboard with fixed image -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/61lcMLfm9aL._AC_UY327_FMwebp_QL65_.jpg" alt="Mechanical Keyboard">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">لوحة مفاتيح ميكانيكية للألعاب - إضاءة RGB</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(134)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">75$</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Gaming Laptop -->
-    <div class="product" data-name="asus rog laptop" onclick="viewProduct('laptop.html')">
-      <img src="https://m.media-amazon.com/images/I/71zuMSjwDfL._AC_SX466_.jpg" alt="Gaming Laptop">
-      <h2>ASUS ROG Strix G16</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>16” 165Hz, RTX 5060, i7-14650HX</p>
-      <p class="price">$1800</p>
-      <button>Add to Cart</button>
-    </div>
+      <!-- New Product 2 - Camera with fixed image -->
+      <div class="product">
+        <span class="product-badge">عرض خاص</span>
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71Bj9jFOquL._AC_UY327_FMwebp_QL65_.jpg" alt="Action Camera">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">كاميرا أكشن - 4K مقاومة للماء</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★☆</div>
+            <span class="rating-count">(88)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">150$</span>
+            <span class="original-price">200$</span>
+            <span class="discount">خصم 25%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- PlayStation 5 -->
-    <div class="product" data-name="playstation 5" onclick="viewProduct('ps5.html')">
-      <img src="https://m.media-amazon.com/images/I/31Rq-MKrmSL._AC_SX466_.jpg" alt="PlayStation 5">
-      <h2>PlayStation 5 Disc Version</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>4K Gaming, 825GB SSD, Extra Controller</p>
-      <p class="price">$499</p>
-      <button>Add to Cart</button>
-    </div>
+      <!-- New Product 3 - Mouse with fixed image -->
+      <div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71i6whIv3QL._AC_UY327_FMwebp_QL65_.jpg" alt="Wireless Mouse">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">ماوس لاسلكي - تصميم مريح للألعاب</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(205)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">45$</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Google Play Gift Card -->
-    <div class="product" data-name="google play gift card" onclick="viewProduct('giftcard.html')">
-      <img src="https://m.media-amazon.com/images/I/51vdYL+gJtL._AC_SX466_.jpg" alt="Gift Card">
-      <h2>Google Play Gift Card</h2>
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p>Perfect for apps, games, and more</p>
-      <p class="price">$25</p>
-      <button>Add to Cart</button>
+      <!-- New Product 4 - Added new product instead of Smart Home Hub -->
+      <div class="product">
+        <span class="product-badge">جديد</span>
+        <div class="product-image">
+          <img src="https://www.bing.com/th/id/OIP.51jd70N_xUlf6ZqTrMnp0AAAAA?w=202&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="External Hard Drive">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">قرص صلب خارجي - 2 تيرابايت</h3>
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-count">(167)</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">85$</span>
+            <span class="original-price">100$</span>
+            <span class="discount">خصم 15%</span>
+          </div>
+          <div class="product-actions">
+            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+            <button class="add-to-cart">أضف إلى السلة</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 AMIRSHOP - All Rights Reserved</p> <button id="contactButton">Contact Us</button>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>من نحن</h3>
+        <ul>
+          <li><a href="#">عن AMIRSHOP</a></li>
+          <li><a href="#">طريقة الشراء</a></li>
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">اتصل بنا</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>خدمة العملاء</h3>
+        <ul>
+          <li><a href="#">سياسة الإرجاع</a></li>
+          <li><a href="#">الشحن والتوصيل</a></li>
+          <li><a href="#">تتبع الطلبيات</a></li>
+          <li><a href="#">الدعم الفني</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>وسائل الدفع</h3>
+        <ul>
+          <li><a href="#">بطاقات الائتمان</a></li>
+          <li><a href="#">الدفع عند الاستلام</a></li>
+          <li><a href="#">تحويل بنكي</a></li>
+          <li><a href="#">الدفع الإلكتروني</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>تابعنا</h3>
+        <p>كن أول من يعرف عن العروض والمنتجات الجديدة</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2023 AMIRSHOP - جميع الحقوق محفوظة</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // تفعيل القائمة على الهواتف
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('nav ul').classList.toggle('show');
+    });
+    
+    // وظيفة البحث
+    function searchProducts() {
+      const searchBox = document.getElementById('searchBox');
+      const filter = searchBox.value.toUpperCase();
+      const products = document.querySelectorAll('.product');
+      
+      products.forEach(product => {
+        const productName = product.querySelector('.product-title').textContent.toUpperCase();
+        if (productName.indexOf(filter) > -1) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+    
+    // تفعيل حقل البحث
+    document.getElementById('searchBox').addEventListener('keyup', searchProducts);
+    
+    // تأثير التمرير السلس للروابط
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // معالجة أخطاء تحميل الصور
+    document.querySelectorAll('.product-image img').forEach(img => {
+      img.onerror = function() {
+        this.style.display = 'none';
+        const placeholder = document.createElement('div');
+        placeholder.className = 'image-placeholder';
+        placeholder.innerHTML = '<i class="fas fa-image"></i> الصورة غير متوفرة';
+        this.parentNode.appendChild(placeholder);
+      };
+    });
+
+    // تفعيل أزرار الإعجاب
+    document.querySelectorAll('.wishlist-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const icon = this.querySelector('i');
+        if (this.classList.contains('active')) {
+          icon.classList.remove('far');
+          icon.classList.add('fas');
+          icon.style.color = '#ff5a5a';
+        } else {
+          icon.classList.remove('fas');
+          icon.classList.add('far');
+          icon.style.color = '';
+        }
+      });
+    });
+
+    // تحديث عداد العرض الترويجي
+    function updateOfferTimer() {
+      const days = 2;
+      const hours = 12;
+      const minutes = 30;
+      const seconds = 15;
+      
+      const timerElement = document.querySelector('.offer-timer');
+      if (timerElement) {
+        timerElement.innerHTML = `<i class="fas fa-bolt"></i> ينتهي خلال: ${days} يوم, ${hours}:${minutes}:${seconds}`;
+      }
+    }
+    
+    updateOfferTimer();
+  </script>
 </body>
+</html>
 
 
 
