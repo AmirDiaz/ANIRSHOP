@@ -111,9 +111,9 @@
         }
 
         .product-main-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* ضبط حجم الصورة الرئيسية */
         }
 
         .product-thumbnails {
@@ -130,6 +130,10 @@
             cursor: pointer;
             overflow: hidden;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
         }
 
         .thumbnail:hover, .thumbnail.active {
@@ -139,7 +143,7 @@
         .thumbnail img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* توحيد حجم كل الصور المصغرة */
         }
 
         .product-info {
@@ -350,20 +354,20 @@
                     <img src="https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg" alt="PlayStation 5 Console" id="mainImage-ps5">
                 </div>
                 <div class="product-thumbnails">
-                    <div class="thumbnail active" onclick="changeImage('https://m.media-amazon.com/images/I/21g0GG-TMuL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                    <div class="thumbnail active" onclick="changeImage('https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg', 'mainImage-ps5', this)">
                         <img src="https://m.media-amazon.com/images/I/61ssq9kK1wL._SL1200_.jpg" alt="PlayStation 5 - صورة رئيسية">
                     </div>
                     <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/61PCNqNcocL._SL1500_.jpg', 'mainImage-ps5', this)">
                         <img src="https://m.media-amazon.com/images/I/61PCNqNcocL._SL1500_.jpg" alt="PlayStation 5 - منظر جانبي">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/21g0GG-TMuL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
-                        <img src="https://m.media-amazon.com/images/I/21g0GG-TMuL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - وحدة التحكم">
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/21g0GG-TMuL._SL1200_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/21g0GG-TMuL._SL1200_.jpg" alt="PlayStation 5 - وحدة التحكم">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/51UeEcmcvJL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/71aZsdgwkUL._SL1500_.jpg', 'mainImage-ps5', this)">
                         <img src="https://m.media-amazon.com/images/I/71aZsdgwkUL._SL1500_.jpg" alt="PlayStation 5 - منظر خلفي">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/41sBj1Mt9rL._SX38_SY50_CR,0,0,38,50_.jpg', 'mainImage-ps5', this)">
-                        <img src="https://m.media-amazon.com/images/I/41sBj1Mt9rL._SX38_SY50_CR,0,0,38,50_.jpg" alt="PlayStation 5 - منظر علوي">
+                    <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/41sBj1Mt9rL._SL1500_.jpg', 'mainImage-ps5', this)">
+                        <img src="https://m.media-amazon.com/images/I/41sBj1Mt9rL._SL1500_.jpg" alt="PlayStation 5 - منظر علوي">
                     </div>
                     <div class="thumbnail" onclick="changeImage('https://m.media-amazon.com/images/I/61OQI1W5vdL._SL1500_.jpg', 'mainImage-ps5', this)">
                         <img src="https://m.media-amazon.com/images/I/61OQI1W5vdL._SL1500_.jpg" alt="PlayStation 5 - المنفذ الأمامي">
@@ -419,20 +423,14 @@
     </div>
 
     <script>
-        // دالة تغيير الصورة الرئيسية عند النقر على الصور المصغرة
         function changeImage(src, mainImageId, element) {
             document.getElementById(mainImageId).src = src;
-            
-            // إزالة الفعال من جميع الصور المصغرة
             document.querySelectorAll('.thumbnail').forEach(thumb => {
                 thumb.classList.remove('active');
             });
-            
-            // إضافة الفعال للصورة المصغرة المحددة
             element.classList.add('active');
         }
 
-        // تفعيل أزرار الإعجاب
         document.querySelectorAll('.wishlist-btn').forEach(button => {
             button.addEventListener('click', function() {
                 this.classList.toggle('active');
@@ -450,7 +448,6 @@
             });
         });
 
-        // تفعيل أزرار الإضافة إلى السلة والشراء
         document.querySelector('.add-to-cart').addEventListener('click', function() {
             alert('تمت إضافة PlayStation 5 إلى سلة التسوق!');
         });
@@ -461,7 +458,6 @@
     </script>
 </body>
 </html>
-
 
 
 
